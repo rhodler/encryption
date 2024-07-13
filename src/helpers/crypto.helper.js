@@ -1,16 +1,13 @@
 const CryptoJS = require("crypto-js");
 
 function encrypt(message, secretKey) {
-  return CryptoJS.AES.encrypt(message, secretKey).toString();
+  return CryptoJS.DES.encrypt(message, secretKey).toString();
 }
 
-function decrypt(data, secretKey) {
-  try {
-    const bytes = CryptoJS.AES.decrypt(data, secretKey);
-    return bytes.toString(CryptoJS.enc.Utf8);
-  } catch (error) {
-    console.log(error);
-  }
+function decrypt({ encrypted, secretKey }) {
+  const decrypted = CryptoJS.DES.decrypt(encrypted, secretKey);
+
+  return decrypted.toString(CryptoJS.enc.Utf8);
 }
 
 module.exports = { encrypt, decrypt };

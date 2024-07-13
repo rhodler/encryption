@@ -2,7 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 
 dotenv.config();
-
+const PORT = 4000;
 const app = express();
 
 app.use(express.json());
@@ -16,6 +16,6 @@ app.use(function (err, _req, res, _next) {
   errorHandler.handleError(err, res);
 });
 
-app.listen(5000, () => {
-  console.log("server is listening on port 5000");
+app.listen(PORT, () => {
+  console.log(`server is listening on http://localhost:${PORT}`);
 });

@@ -22,7 +22,7 @@ function encryptData(req, res, next) {
 
 function decryptData(req, res, next) {
   decryptUsecase
-    .execute(req.query.data, req.query.secretKey)
+    .execute(req.body)
     .then((response) => res.status(200).json(response))
     .catch((error) => next(error));
 }
