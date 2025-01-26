@@ -15,7 +15,7 @@ function signMessage(req, res, next) {
 
 function encryptData(req, res, next) {
   encryptUsecase
-    .execute(req.query.data, req.query.secretKey)
+    .execute(req.body)
     .then((response) => res.status(200).json(response))
     .catch((error) => next(error));
 }

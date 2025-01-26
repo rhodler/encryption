@@ -1,7 +1,7 @@
 const { encrypt } = require("../helpers/crypto.helper");
 
-async function execute(data, secretKey) {
-  return encrypt(data, secretKey);
+async function execute(data) {
+  return encrypt(data);
 }
 
 module.exports = { execute };
